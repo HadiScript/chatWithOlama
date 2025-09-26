@@ -1,0 +1,439 @@
+@import "tailwindcss";
+
+/* Fix viewport and prevent mobile issues */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+body {
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
+  position: relative;
+}
+
+#root {
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Prevent mobile keyboard issues */
+@supports (-webkit-touch-callout: none) {
+  #root {
+    height: -webkit-fill-available;
+  }
+}
+
+/* Prevent iOS zoom on input focus */
+input, textarea, select {
+  font-size: 16px !important;
+}
+
+/* Fix mobile viewport units */
+.h-screen {
+  height: 100vh;
+  height: 100dvh;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .h-screen {
+    height: -webkit-fill-available;
+  }
+}
+
+/* Clean, subtle animations */
+@keyframes message-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced Star Drift Animations */
+@keyframes drift-super-fast {
+  from {
+    transform: translateX(-300px) translateY(-200px);
+  }
+  to {
+    transform: translateX(300px) translateY(200px);
+  }
+}
+
+@keyframes drift-slow {
+  from {
+    transform: translateX(-100px) translateY(-50px);
+  }
+  to {
+    transform: translateX(100px) translateY(50px);
+  }
+}
+
+@keyframes drift-medium {
+  from {
+    transform: translateX(-150px) translateY(75px);
+  }
+  to {
+    transform: translateX(150px) translateY(-75px);
+  }
+}
+
+@keyframes drift-fast {
+  from {
+    transform: translateX(-200px) translateY(100px);
+  }
+  to {
+    transform: translateX(200px) translateY(-100px);
+  }
+}
+
+@keyframes drift-ultra-slow {
+  from {
+    transform: translateX(-50px) translateY(-25px) rotate(0deg);
+  }
+  to {
+    transform: translateX(50px) translateY(25px) rotate(360deg);
+  }
+}
+
+/* Twinkling and Pulsing Effects */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes pulse-gentle {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes pulse-bright {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+    filter: brightness(1.5);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Custom scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(135, 206, 235, 0.3) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(135, 206, 235, 0.4);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(135, 206, 235, 0.6);
+}
+
+/* Animation classes */
+.message-slide-in {
+  animation: message-slide-in 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-drift-super-fast {
+  animation: drift-super-fast 30s linear infinite;
+}
+
+.animate-drift-slow {
+  animation: drift-slow 60s linear infinite;
+}
+
+.animate-drift-medium {
+  animation: drift-medium 80s linear infinite reverse;
+}
+
+.animate-drift-fast {
+  animation: drift-fast 120s linear infinite;
+}
+
+.animate-drift-ultra-slow {
+  animation: drift-ultra-slow 180s linear infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+.animate-pulse-gentle {
+  animation: pulse-gentle 6s ease-in-out infinite;
+}
+
+.animate-pulse-bright {
+  animation: pulse-bright 8s ease-in-out infinite;
+}
+
+.animate-shimmer-stars {
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(74, 144, 226, 0.4);
+  color: white;
+}
+
+/* Smooth transitions */
+.smooth-transition {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Code block styling */
+pre {
+  font-family: 'Fira Code', 'JetBrains Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+}
+
+code {
+  font-family: 'Fira Code', 'JetBrains Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+}
+
+/* Scrollbar for code blocks */
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Amazing scroll-based effects */
+@keyframes shooting-star {
+  0% {
+    transform: translateX(-100px) translateY(50px) scaleX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scaleX(1);
+  }
+  100% {
+    transform: translateX(100px) translateY(-50px) scaleX(0);
+    opacity: 0;
+  }
+}
+
+@keyframes hyperspace-warp {
+  0% {
+    transform: scale(1) rotateZ(0deg);
+    filter: blur(0px);
+  }
+  50% {
+    transform: scale(1.5) rotateZ(180deg);
+    filter: blur(2px);
+  }
+  100% {
+    transform: scale(2) rotateZ(360deg);
+    filter: blur(4px);
+  }
+}
+
+@keyframes cosmic-glow {
+  0% {
+    box-shadow: 0 0 5px rgba(135, 206, 235, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(135, 206, 235, 0.6), 0 0 40px rgba(74, 144, 226, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(135, 206, 235, 0.3);
+  }
+}
+
+@keyframes neon-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 5px rgba(0, 255, 255, 0.8),
+      0 0 10px rgba(0, 255, 255, 0.6),
+      0 0 15px rgba(0, 255, 255, 0.4);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(0, 255, 255, 1),
+      0 0 20px rgba(0, 255, 255, 0.8),
+      0 0 30px rgba(0, 255, 255, 0.6),
+      0 0 40px rgba(0, 100, 255, 0.4);
+  }
+}
+
+/* Enhanced drift animations with 3D effects */
+@keyframes drift-super-fast-3d {
+  0% {
+    transform: translateX(-400px) translateY(-300px) translateZ(0px) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: translateX(0px) translateY(-150px) translateZ(-100px) rotateX(90deg) rotateY(90deg);
+  }
+  50% {
+    transform: translateX(400px) translateY(0px) translateZ(-200px) rotateX(180deg) rotateY(180deg);
+  }
+  75% {
+    transform: translateX(0px) translateY(150px) translateZ(-100px) rotateX(270deg) rotateY(270deg);
+  }
+  100% {
+    transform: translateX(-400px) translateY(300px) translateZ(0px) rotateX(360deg) rotateY(360deg);
+  }
+}
+
+/* Dynamic utility classes */
+.neon-glow {
+  animation: neon-glow 2s ease-in-out infinite;
+}
+
+.cosmic-glow {
+  animation: cosmic-glow 3s ease-in-out infinite;
+}
+
+.hyperspace-warp {
+  animation: hyperspace-warp 1s ease-out forwards;
+}
+
+/* Perspective container */
+.perspective-container {
+  perspective: 2000px;
+  transform-style: preserve-3d;
+}
+
+/* Star pulse animation */
+@keyframes starPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Star movement patterns */
+@keyframes starMove0 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(30px, -20px);
+  }
+  50% {
+    transform: translate(-15px, -40px);
+  }
+  75% {
+    transform: translate(-45px, 10px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes starMove1 {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  33% {
+    transform: translate(-25px, 35px) rotate(120deg);
+  }
+  66% {
+    transform: translate(40px, -10px) rotate(240deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(360deg);
+  }
+}
+
+@keyframes starMove2 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  20% {
+    transform: translate(20px, 30px);
+  }
+  40% {
+    transform: translate(-30px, 15px);
+  }
+  60% {
+    transform: translate(10px, -35px);
+  }
+  80% {
+    transform: translate(-20px, -10px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes starMove3 {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-35px, -25px) scale(1.1);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
